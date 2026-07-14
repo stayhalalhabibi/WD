@@ -1,55 +1,77 @@
-body {
-  margin: 0;
-  font-family: Arial, sans-serif;
-  background-color: #f4f8fb;
+/* Google Font */
+@import url("https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap");
+
+/* Reset */
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
 }
 
-nav {
-  background-color: #0d6efd;
-  padding: 15px;
+/* Colors */
+:root{
+    --primary:#2563eb;
+    --secondary:#1e3a8a;
+    --success:#10b981;
+    --danger:#ef4444;
+    --white:#ffffff;
+    --dark:#0f172a;
+    --text:#475569;
+    --background:#f4f8fb;
+    --shadow:0 10px 30px rgba(0,0,0,.08);
 }
 
-nav a {
-  color: white;
-  text-decoration: none;
-  margin-right: 15px;
-  font-weight: bold;
+/* Body */
+
+body{
+
+    font-family:'Poppins',sans-serif;
+
+    background:linear-gradient(135deg,#f4f8fb,#eef5ff);
+
+    color:var(--dark);
+
+    min-height:100vh;
+
 }
 
-.container {
-  max-width: 800px;
-  margin: 30px auto;
-  background: white;
-  padding: 25px;
-  border-radius: 12px;
-  box-shadow: 0 0 10px rgba(0,0,0,0.1);
+/* Images */
+
+img{
+
+    max-width:100%;
+
+    display:block;
+
 }
+
+/* Links */
+
+a{
+
+    text-decoration:none;
+
+    color:inherit;
+
+}
+
+/* Buttons */
+
+button{
+
+    cursor:pointer;
+
+    font-family:inherit;
+
+}
+
+/* Inputs */
 
 input,
 select,
-button {
-  width: 100%;
-  padding: 12px;
-  margin-top: 10px;
-  border-radius: 6px;
-}
+textarea,
+button{
 
-button {
-  background-color: #198754;
-  color: white;
-  border: none;
-  font-size: 16px;
-  cursor: pointer;
-}
+    font-size:16px;
 
-button:hover {
-  background-color: #146c43;
-}
-
-.result-card {
-  margin-top: 20px;
-  padding: 20px;
-  border-radius: 10px;
-  border-left: 6px solid #198754;
-  background-color: #eafaf1;
 }

@@ -1,0 +1,129 @@
+/* ===========================
+   HOME PAGE
+=========================== */
+
+.home {
+  min-height: 90vh;
+  display: flex;
+  align-items: center;
+ background: linear-gradient(
+      135deg,
+      #0f172a,
+      #1e293b,
+      #334155
+  );
+
+  color: white;
+}
+
+.hero {
+  width: 90%;
+  max-width: 1200px;
+  margin: auto;
+
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 60px;
+  align-items: center;
+}
+
+.hero-text h1 {
+  font-size: 56px;
+  color: #0f172a;
+  margin-bottom: 20px;
+}
+
+.hero-text h1 span {
+  color: #2563eb;
+}
+
+.hero-text p {
+  font-size: 18px;
+  color: #475569;
+  line-height: 1.8;
+  margin-bottom: 35px;
+}
+
+.hero-buttons {
+  display: flex;
+  gap: 20px;
+}
+
+.btn-primary {
+  padding: 15px 35px;
+  background: #2563eb;
+  color: white;
+  border-radius: 50px;
+  font-weight: 600;
+  transition: .3s;
+}
+
+.btn-primary:hover {
+  background: #1d4ed8;
+  transform: translateY(-4px);
+}
+
+.btn-secondary {
+  padding: 15px 35px;
+  border: 2px solid #2563eb;
+  color: #2563eb;
+  border-radius: 50px;
+  font-weight: 600;
+  transition: .3s;
+}
+
+.btn-secondary:hover {
+  background: #2563eb;
+  color: white;
+}
+
+/* Right Side Card */
+
+.hero-image {
+  display: flex;
+  justify-content: center;
+}
+
+.ai-card {
+  width: 350px;
+  background: white;
+  border-radius: 20px;
+  padding: 40px;
+  text-align: center;
+  box-shadow: 0 15px 40px rgba(0,0,0,.08);
+}
+
+.ai-card h2 {
+  color: #2563eb;
+  margin-bottom: 20px;
+}
+
+.ai-card p {
+  color: #475569;
+  line-height: 1.8;
+}
+
+.ai-icon {
+  font-size: 80px;
+  margin-bottom: 20px;
+}
+
+/* Responsive */
+
+@media(max-width:900px){
+
+.hero{
+grid-template-columns:1fr;
+text-align:center;
+}
+
+.hero-buttons{
+justify-content:center;
+flex-wrap:wrap;
+}
+
+.hero-text h1{
+font-size:40px;
+}
+
+}

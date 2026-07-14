@@ -1,14 +1,72 @@
+import "./Contact.css";
+
 function Contact() {
   return (
-    <div className="container">
-      <h1>Contact Us</h1>
+    <section className="contact">
 
-      <p>Email: support@cancervisionai.com</p>
+      <div className="contact-container">
 
-      <p>Phone: +91 9876543210</p>
+        <div className="contact-info">
 
-      <p>Location: Lucknow, India</p>
-    </div>
+          <h1>Contact Us</h1>
+
+          <p>
+            Have questions or suggestions?
+            We'd love to hear from you.
+          </p>
+
+          <div className="info-box">
+
+            <h3>📧 Email</h3>
+
+            <p>support@cancervision.ai</p>
+
+          </div>
+
+          <div className="info-box">
+
+            <h3>📞 Phone</h3>
+
+            <p>+91 98765 43210</p>
+
+          </div>
+
+          <div className="info-box">
+
+            <h3>📍 Address</h3>
+
+            <p>New Delhi, India</p>
+
+          </div>
+
+        </div>
+
+        <form className="contact-form">
+
+          <input
+            type="text"
+            placeholder="Your Name"
+          />
+
+          <input
+            type="email"
+            placeholder="Your Email"
+          />
+
+          <textarea
+            rows="6"
+            placeholder="Your Message"
+          ></textarea>
+
+          <button>
+            Send Message
+          </button>
+
+        </form>
+
+      </div>
+
+    </section>
   );
 }
 

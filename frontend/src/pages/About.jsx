@@ -1,19 +1,67 @@
+import "./About.css";
+
 function About() {
   return (
-    <div className="container">
-      <h1>About CancerVision AI</h1>
+    <section className="about">
 
-      <p>
-        CancerVision AI is a healthcare-focused project
-        developed to help users assess potential cancer risks
-        through simple health-related questions.
-      </p>
+      <div className="about-container">
 
-      <p>
-        This project was created as a full-stack healthcare
-        solution for hackathon demonstrations.
-      </p>
-    </div>
+        <h1 className="about-title">
+          About CancerVision AI
+        </h1>
+
+        <p className="about-subtitle">
+          CancerVision AI is an intelligent healthcare platform
+          that helps users estimate cancer risk using artificial
+          intelligence and health-related information.
+        </p>
+
+        <div className="about-grid">
+
+          <div className="about-card">
+
+            <div className="icon">🎯</div>
+
+            <h2>Mission</h2>
+
+            <p>
+              Help people detect cancer risks early
+              through AI-powered assessment.
+            </p>
+
+          </div>
+
+          <div className="about-card">
+
+            <div className="icon">👁️</div>
+
+            <h2>Vision</h2>
+
+            <p>
+              Make healthcare technology accessible
+              to everyone.
+            </p>
+
+          </div>
+
+          <div className="about-card">
+
+            <div className="icon">🤖</div>
+
+            <h2>Technology</h2>
+
+            <p>
+              Built using React, Node.js,
+              Express, MongoDB and AI.
+            </p>
+
+          </div>
+
+        </div>
+
+      </div>
+
+    </section>
   );
 }
 
