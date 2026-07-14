@@ -1,50 +1,81 @@
+
+require("dotenv").config();
+console.log("MONGO_URI =", process.env.MONGO_URI);
+
+
+const mongoose = require("mongoose");
 const express = require("express");
 const cors = require("cors");
 
-const app = express();
+const Assessment = require("./models/Assessment");
 
+
+const app = express();
+const PORT = process.env.PORT || 5000;
+
+// Middleware
 app.use(cors());
 app.use(express.json());
+mongoose
+  .connect(process.env.MONGO_URI)
+  .then(() => console.log("✅ MongoDB Connected"))
+  .catch((err) => console.log(err));
 
+// Home Route
 app.get("/", (req, res) => {
   res.send("CancerVision AI Backend Running");
 });
 
-app.post("/predict", (req, res) => {
-  const { age, smoking, familyHistory } = req.body;
+// Predict Route
+   app.post("/predict", async (req, res) => {
+  console.log("Request received!");
+  console.log(req.body);
+
+  const { age, smoking, alcohol, familyHistory } = req.body;
 
   let score = 0;
 
-  if (age > 50) score += 30;
-  if (smoking === "Yes") score += 35;
-  if (familyHistory === "Yes") score += 35;
+  if (Number(age) >= 50) score += 30;
+  if (smoking === "Yes") score += 30;
+  if (alcohol === "Yes") score += 20;
+  if (familyHistory === "Yes") score += 20;
 
-  let level = "";
+  let risk = "";
   let recommendation = "";
 
-  if (score >= 70) {
-    level = "High Risk";
-    recommendation =
-      "Please consult a healthcare professional.";
-  } else if (score >= 40) {
-    level = "Moderate Risk";
-    recommendation =
-      "Consider regular health screenings.";
+  if (score <= 30) {
+    risk = "Low";
+    recommendation = "Maintain a healthy lifestyle and regular checkups.";
+  } else if (score <= 60) {
+    risk = "Medium";
+    recommendation = "Consult a doctor and consider regular screening.";
   } else {
-    level = "Low Risk";
-    recommendation =
-      "Maintain a healthy lifestyle.";
+    risk = "High";
+    recommendation = "Please consult an oncologist as soon as possible.";
   }
 
+  const assessment = new Assessment({
+    name: req.body.name,
+    age: req.body.age,
+    gender: req.body.gender,
+    smoking,
+    alcohol,
+    familyHistory,
+    risk,
+    score: score + "%",
+    recommendation,
+  });
+
+  await assessment.save();
+
   res.json({
-    riskLevel: level,
-    riskScore: score,
+    risk,
+    score: score + "%",
     recommendation,
   });
 });
 
-const PORT = 5000;
-
+// Start Server
 app.listen(PORT, () => {
   console.log(`Server running on port ${PORT}`);
 });
